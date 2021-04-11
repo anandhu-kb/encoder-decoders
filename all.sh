@@ -1,44 +1,41 @@
 #!/bin/bash
-read -p "enter the word or hash : " wd
-read -p "base64 encrypt ("1"); base64 decrypt ("2") for others ("3") : " wp
+#all.1.sh
+read -p "hashes : " a
+read -p "base64 encrypt ("1"); base64 decrypt ("2") for others ("3")  " b
 
-
-
-if (( $wp == 1))
+if (( $b == 1 ))
 then
-        echo $wd | base64
-elif (( $wp == 2 ))
+	echo $a | base64
+	echo ""
+elif (( $b == 2 ))
 then
-        echo $wd | base64 -d
+	echo $a | base64 -d
+	echo ""
 else
-	
-	read -p "base32 encrypt ("1") base32 decrypt ("2")  others("3"): " ot
-fi
+	read -p "base32 encrypt ("4") base32 decrypt ("5")  others("6")  " c
 
-if (( $ot == 1))
+if (( $c == 4))
 then
-	 
-	echo $wd | base32
-elif (( $ot == 2))
+	echo $a | base32
+elif (( $c == 5 ))
 then
-		 
-		echo $wd | base32 -d
+	echo $a | base32 -d
+	echo ""
 else
-	read -p "md5 encrypt ("1") md5 decrypt ("2") others ("3") " md
-fi
-
-if (( $md == 1 ))
+	read -p "md5 encrypt ("7") md5 decrypt ("8") others ("9") " d
+if (( $d == 7 ))
 then
-	 
-	echo $md | md5sum
-elif (( $md == 2 ))
+	echo -n $a | md5sum
+	echo ""
+elif (( $d == 8 ))
 then
-	u=https://www.nitrxgen.net/md5db/$wd
-	 
+	u=https://www.nitrxgen.net/md5db/$a
+	echo "" 
 	curl $u
 	echo ""
 	echo ""
 else
-	
-	echo "building...................."
+	echo "over"
+fi
+fi
 fi
